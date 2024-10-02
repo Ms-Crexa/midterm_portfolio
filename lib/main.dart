@@ -8,19 +8,43 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
     bool isMobile = MediaQuery.of(context).size.width < 600;
 
     List<Widget> menuItems = [
-      TextButton(onPressed: () {}, child: Text('Home')),
-      TextButton(onPressed: () {}, child: Text('About')),
-      TextButton(onPressed: () {}, child: Text('Skills')),
-      TextButton(onPressed: () {}, child: Text('Portfolio')),
-      TextButton(onPressed: () {}, child: Text('Contact')),
+      TextButton(
+          onPressed: () {},
+          child: Text(
+            'Home',
+            style: TextStyle(color: Colors.white),
+          )),
+      TextButton(
+          onPressed: () {},
+          child: Text(
+            'About',
+            style: TextStyle(color: Colors.white),
+          )),
+      TextButton(
+          onPressed: () {},
+          child: Text(
+            'Skills',
+            style: TextStyle(color: Colors.white),
+          )),
+      TextButton(
+          onPressed: () {},
+          child: Text(
+            'Portfolio',
+            style: TextStyle(color: Colors.white),
+          )),
+      TextButton(
+          onPressed: () {},
+          child: Text(
+            'Contact',
+            style: TextStyle(color: Colors.white),
+          )),
     ];
 
     if (isMobile) {
       return Builder(
         builder: (context) => IconButton(
           icon: Icon(Icons.menu),
-          onPressed: () =>
-              Scaffold.of(context).openEndDrawer(), // Open right-side drawer
+          onPressed: () => Scaffold.of(context).openEndDrawer(),
         ),
       );
     } else {
@@ -33,10 +57,16 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: const Color.fromARGB(255, 114, 127, 143),
-      title: Text('Ninya Paraiso'),
-      actions: [_buildMenu(context)],
+    return Padding(
+      padding: EdgeInsets.only(left: 30, right: 30),
+      child: AppBar(
+        backgroundColor: const Color.fromARGB(255, 81, 95, 244),
+        title: Text(
+          'Ninya Paraiso',
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: [_buildMenu(context)],
+      ),
     );
   }
 }
@@ -45,10 +75,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 114, 127, 143),
+      backgroundColor: const Color.fromARGB(255, 81, 95, 244),
       appBar: Appbar(),
       endDrawer: Drawer(
-        // Right-side drawer
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -60,33 +89,23 @@ class MyHomePage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Home'),
-              onTap: () {
-                // Handle navigation
-              },
+              onTap: () {},
             ),
             ListTile(
               title: Text('About'),
-              onTap: () {
-                // Handle navigation
-              },
+              onTap: () {},
             ),
             ListTile(
               title: Text('Skills'),
-              onTap: () {
-                // Handle navigation
-              },
+              onTap: () {},
             ),
             ListTile(
               title: Text('Portfolio'),
-              onTap: () {
-                // Handle navigation
-              },
+              onTap: () {},
             ),
             ListTile(
               title: Text('Contact'),
-              onTap: () {
-                // Handle navigation
-              },
+              onTap: () {},
             ),
           ],
         ),
