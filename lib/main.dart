@@ -19,8 +19,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       return Builder(
         builder: (context) => IconButton(
           icon: Icon(Icons.menu),
-          onPressed: () =>
-              Scaffold.of(context).openEndDrawer(), // Open right-side drawer
+          onPressed: () => Scaffold.of(context).openEndDrawer(),
         ),
       );
     } else {
