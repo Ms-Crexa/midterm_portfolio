@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Maincontent extends StatefulWidget {
-  const Maincontent({Key? key}) : super(key: key);
+  const Maincontent({super.key});
 
   @override
   _MaincontentState createState() => _MaincontentState();
@@ -13,7 +13,7 @@ class _MaincontentState extends State<Maincontent> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(top: 100, left: 80, right: 150),
+      margin: const EdgeInsets.only(top: 100, left: 80, right: 150),
       child: Stack(
         children: [
           Row(
@@ -34,7 +34,7 @@ class _MaincontentState extends State<Maincontent> {
                         Shadow(
                           blurRadius: 10.0,
                           color: Colors.black.withOpacity(0.5),
-                          offset: Offset(10.0, 10.0),
+                          offset: const Offset(10.0, 10.0),
                         ),
                       ],
                     ),
@@ -50,7 +50,7 @@ class _MaincontentState extends State<Maincontent> {
                         Shadow(
                           blurRadius: 10.0,
                           color: Colors.black.withOpacity(0.5),
-                          offset: Offset(5.0, 5.0),
+                          offset: const Offset(5.0, 5.0),
                         ),
                       ],
                     ),
