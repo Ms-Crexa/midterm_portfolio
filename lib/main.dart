@@ -1,40 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:midterm_portfolio/about.dart';
+import 'package:midterm_portfolio/footer.dart';
 import 'package:midterm_portfolio/maincontent.dart';
+import 'package:midterm_portfolio/skills.dart';
+import 'package:midterm_portfolio/contacts.dart';
 
 class Appbar extends StatelessWidget implements PreferredSizeWidget {
+  const Appbar({super.key});
+
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
   Widget _buildMenu(BuildContext context) {
     bool isMobile = MediaQuery.of(context).size.width < 600;
 
     List<Widget> menuItems = [
       TextButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Home',
             style: TextStyle(color: Colors.white),
           )),
       TextButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'About',
             style: TextStyle(color: Colors.white),
           )),
       TextButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Skills',
             style: TextStyle(color: Colors.white),
           )),
       TextButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Portfolio',
             style: TextStyle(color: Colors.white),
           )),
       TextButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Contact',
             style: TextStyle(color: Colors.white),
           )),
@@ -43,7 +49,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
     if (isMobile) {
       return Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
           onPressed: () => Scaffold.of(context).openEndDrawer(),
         ),
       );
@@ -58,10 +64,10 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 30, right: 30),
+      padding: const EdgeInsets.only(left: 70, right: 30),
       child: AppBar(
         backgroundColor: const Color.fromARGB(255, 81, 95, 244),
-        title: Text(
+        title: const Text(
           'Ninya Paraiso',
           style: TextStyle(color: Colors.white),
         ),
@@ -72,11 +78,15 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 81, 95, 244),
-      appBar: Appbar(),
+      appBar: const Appbar(),
       endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -88,35 +98,68 @@ class MyHomePage extends StatelessWidget {
               child: Text('Menu'),
             ),
             ListTile(
-              title: Text('Home'),
+              title: const Text('Home'),
               onTap: () {},
             ),
             ListTile(
-              title: Text('About'),
+              title: const Text('About'),
               onTap: () {},
             ),
             ListTile(
-              title: Text('Skills'),
+              title: const Text('Skills'),
               onTap: () {},
             ),
             ListTile(
-              title: Text('Portfolio'),
+              title: const Text('Portfolio'),
               onTap: () {},
             ),
             ListTile(
-              title: Text('Contact'),
+              title: const Text('Contact'),
               onTap: () {},
             ),
           ],
         ),
       ),
-      body: Maincontent(),
+      body: Expanded(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                color: const Color.fromARGB(255, 81, 95, 244),
+                height: screenHeight,
+                child: const Maincontent(),
+              ),
+              Container(
+                color: Colors.green,
+                height: screenHeight,
+                child: const About(),
+              ),
+              Container(
+                color: Colors.green,
+                height: screenHeight,
+                child: const Skills(),
+              ),
+              Container(
+                color: Colors.green,
+                height: screenHeight,
+                child: const Contacts(),
+              ),
+              Container(
+                color: Colors.green,
+                height: 200,
+                child: const Footer(),
+              ),
+              // Add more widgets as needed
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyHomePage(),
   ));
