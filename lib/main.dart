@@ -82,8 +82,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 81, 95, 244),
       appBar: const Appbar(),
@@ -124,32 +122,11 @@ class MyHomePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                color: const Color.fromARGB(255, 81, 95, 244),
-                height: screenHeight,
-                child: const Maincontent(),
-              ),
-              Container(
-                color: Colors.green,
-                height: screenHeight,
-                child: const About(),
-              ),
-              Container(
-                color: Colors.green,
-                height: screenHeight,
-                child: const Skills(),
-              ),
-              Container(
-                color: Colors.green,
-                height: screenHeight,
-                child: const Contacts(),
-              ),
-              Container(
-                color: Colors.green,
-                height: 200,
-                child: const Footer(),
-              ),
-              // Add more widgets as needed
+              const Maincontent(),
+              const About(),
+              const Skills(),
+              const Contacts(),
+              Footer(),
             ],
           ),
         ),

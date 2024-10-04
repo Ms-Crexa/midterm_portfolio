@@ -32,24 +32,22 @@ class _AboutState extends State<About> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'About',
             style: TextStyle(
               color: Colors.black,
-              fontSize: 60, // Responsive font size
+              fontSize: 60,
               fontWeight: FontWeight.bold,
             ),
           ),
           Container(
-            width: 80, // Scales with screen width
+            width: 80,
             height: 5,
             color: const Color.fromARGB(255, 81, 95, 244),
           ),
-          const SizedBox(height: 50), // Removed fixed height, more flexible
+          const SizedBox(height: 50),
           SizedBox(
-            width: screenWidth > 850
-                ? 850
-                : screenWidth * 0.9, // Scales container width
+            width: screenWidth > 850 ? 850 : screenWidth * 0.9,
             child: LayoutBuilder(
               builder: (context, constraints) {
                 bool isMobile = constraints.maxWidth < 600;
@@ -62,7 +60,7 @@ class _AboutState extends State<About> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               const CircleAvatar(
-                                radius: 100, // Smaller radius for mobile
+                                radius: 100,
                                 backgroundImage: NetworkImage(
                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
                                 ),
@@ -79,7 +77,7 @@ class _AboutState extends State<About> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const CircleAvatar(
-                                radius: 150, // Larger radius for bigger screens
+                                radius: 150,
                                 backgroundImage: NetworkImage(
                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
                                 ),
@@ -98,7 +96,7 @@ class _AboutState extends State<About> {
   }
 
   Widget _buildTextContent(BoxConstraints constraints, bool isMobile) {
-    return Container(
+    return SizedBox(
       width: 400,
       child: Column(
         crossAxisAlignment:
@@ -118,12 +116,9 @@ class _AboutState extends State<About> {
             style: TextStyle(fontSize: 18),
           ),
           const SizedBox(height: 15),
-          Container(
-            child: const Text(
-              'I’m a dedicated software developer with expertise in building dynamic applications using Vue.js, Flutter, and React. I focus on creating intuitive user experiences and solving complex problems through code. Always eager to learn and adapt, I strive to stay updated with the latest industry trends.',
-              textAlign:
-                  TextAlign.justify, // Justify text for better readability
-            ),
+          const Text(
+            'I’m a dedicated software developer with expertise in building dynamic applications using Vue.js, Flutter, and React. I focus on creating intuitive user experiences and solving complex problems through code. Always eager to learn and adapt, I strive to stay updated with the latest industry trends.',
+            textAlign: TextAlign.justify,
           ),
           const SizedBox(height: 30),
           Row(

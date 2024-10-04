@@ -14,7 +14,7 @@ class _SkillsState extends State<Skills> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.only(top: 70),
+      padding: const EdgeInsets.only(top: 70),
       height: screenHeight,
       width: screenWidth,
       color: Colors.white,
@@ -33,63 +33,86 @@ class _SkillsState extends State<Skills> {
           const SizedBox(
             height: 40,
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Development',
-                    style: TextStyle(
-                        color: const Color.fromARGB(255, 81, 95, 244),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20),
-                  ),
-                  SizedBox(height: 10),
-                  Wrap(
-                    spacing: 10,
-                    runSpacing:
-                        10, // Vertical gap between rows if items overflow
-                    children: [
-                      Text('Python'),
-                      Text('JavaScript'),
-                      Text('TypeScript'),
-                      Text('ReactJs'),
-                      Text('VueJs'),
-                      Text('NextJs'),
-                      Text('HTML'),
-                      Text('CSS'),
-                    ],
-                  ),
-                  SizedBox(height: 30), // Spacing between sections
-                  Text(
-                    'Design',
-                    style: TextStyle(
-                        color: const Color.fromARGB(255, 81, 95, 244),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20),
-                  ),
-                  SizedBox(height: 10), // Spacing between title and skills
-                  Wrap(
-                    spacing: 10, // Horizontal gap between items
-                    children: [
-                      Text('Figma'),
-                      Text('Canva'),
-                      Text('Photoshop'),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(width: 60),
-              Image(
-                  image: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU'))
-            ],
+          LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 600) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    _buildSkillsColumn(),
+                    const SizedBox(width: 60),
+                    Image.network(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
+                      width: screenWidth * 0.3,
+                    ),
+                  ],
+                );
+              } else {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    _buildSkillsColumn(),
+                    const SizedBox(height: 40),
+                    Image.network(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
+                      width: screenWidth *
+                          0.6, // Adjust image width for small screens
+                    ),
+                  ],
+                );
+              }
+            },
           )
         ],
       ),
+    );
+  }
+
+  Widget _buildSkillsColumn() {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Development',
+          style: TextStyle(
+              color: Color.fromARGB(255, 81, 95, 244),
+              fontWeight: FontWeight.w700,
+              fontSize: 20),
+        ),
+        SizedBox(height: 10),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            Text('Python'),
+            Text('JavaScript'),
+            Text('TypeScript'),
+            Text('ReactJs'),
+            Text('VueJs'),
+            Text('NextJs'),
+            Text('HTML'),
+            Text('CSS'),
+          ],
+        ),
+        SizedBox(height: 30),
+        Text(
+          'Design',
+          style: TextStyle(
+              color: Color.fromARGB(255, 81, 95, 244),
+              fontWeight: FontWeight.w700,
+              fontSize: 20),
+        ),
+        SizedBox(height: 10),
+        Wrap(
+          spacing: 10,
+          children: [
+            Text('Figma'),
+            Text('Canva'),
+            Text('Photoshop'),
+          ],
+        ),
+      ],
     );
   }
 }
