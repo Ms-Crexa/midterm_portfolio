@@ -14,11 +14,11 @@ class _SkillsState extends State<Skills> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: const EdgeInsets.only(top: 70),
       height: screenHeight,
       width: screenWidth,
       color: Colors.white,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
             'Skills',

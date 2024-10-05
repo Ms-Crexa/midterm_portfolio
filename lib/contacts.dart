@@ -12,6 +12,7 @@ class _ContactsState extends State<Contacts> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -28,7 +29,7 @@ class _ContactsState extends State<Contacts> {
         return Container(
           padding: const EdgeInsets.only(top: 70),
           width: screenWidth,
-          height: screenHeight,
+          height: isMobile ? screenHeight * 0.9 : screenHeight * 0.75,
           color: Colors.white,
           child: Column(
             children: [
@@ -158,8 +159,14 @@ class _ContactsState extends State<Contacts> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color.fromARGB(255, 81, 95, 244),
+            ),
             onPressed: () {},
-            child: const Text('Send'),
+            child: const Text(
+              'Send',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ],

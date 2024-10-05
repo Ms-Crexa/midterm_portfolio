@@ -63,8 +63,10 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600;
     return Padding(
-      padding: const EdgeInsets.only(left: 70, right: 30),
+      padding: EdgeInsets.only(left: isMobile ? 25 : 70, right: 30),
       child: AppBar(
         backgroundColor: const Color.fromARGB(255, 81, 95, 244),
         title: const Text(
@@ -118,14 +120,14 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Expanded(
+      body: const Expanded(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Maincontent(),
-              const About(),
-              const Skills(),
-              const Contacts(),
+              Maincontent(),
+              About(),
+              Skills(),
+              Contacts(),
               Footer(),
             ],
           ),
