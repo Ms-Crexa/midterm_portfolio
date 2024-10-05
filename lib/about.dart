@@ -30,6 +30,7 @@ class _AboutState extends State<About> {
       height: screenHeight,
       color: Colors.white,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
