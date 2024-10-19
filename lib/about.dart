@@ -25,7 +25,7 @@ class _AboutState extends State<About> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      padding: const EdgeInsets.only(top: 90),
+      padding: const EdgeInsets.only(top: 40, bottom: 20),
       width: screenWidth,
       height: screenHeight,
       color: Colors.white,
@@ -33,11 +33,11 @@ class _AboutState extends State<About> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             'About',
             style: TextStyle(
               color: Colors.black,
-              fontSize: 60,
+              fontSize: screenWidth < 600 ? 40 : 60,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -61,11 +61,9 @@ class _AboutState extends State<About> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               const CircleAvatar(
-                                radius: 100,
-                                backgroundImage: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
-                                ),
-                              ),
+                                  radius: 100,
+                                  backgroundImage:
+                                      AssetImage('lib/assets/rose2.jpg')),
                               const SizedBox(height: 30),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -78,11 +76,9 @@ class _AboutState extends State<About> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const CircleAvatar(
-                                radius: 150,
-                                backgroundImage: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
-                                ),
-                              ),
+                                  radius: 150,
+                                  backgroundImage:
+                                      AssetImage('lib/assets/rose2.jpg')),
                               _buildTextContent(constraints, isMobile),
                             ],
                           ),

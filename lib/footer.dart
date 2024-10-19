@@ -51,13 +51,6 @@ class Footer extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Portfolio',
-                          style: TextStyle(
-                            color: Colors.grey[400],
-                            fontSize: 14,
-                          ),
-                        ),
-                        Text(
                           'Contact',
                           style: TextStyle(
                             color: Colors.grey[400],
