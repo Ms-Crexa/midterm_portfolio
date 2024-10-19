@@ -42,8 +42,8 @@ class _SkillsState extends State<Skills> {
                   children: [
                     skillsGrid(),
                     const SizedBox(width: 60),
-                    Image.asset(
-                      'lib/assets/rose2.jpg',
+                    Image.network(
+                      'https://images.vexels.com/media/users/3/291888/isolated/preview/2b24611a5c1798cdaf0ac67a72170075-decorative-blue-flowers.png',
                       width: screenWidth * 0.3,
                     ),
                   ],
@@ -55,7 +55,7 @@ class _SkillsState extends State<Skills> {
                     skillsGrid(),
                     const SizedBox(height: 20),
                     Image.network(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
+                      'https://images.vexels.com/media/users/3/291888/isolated/preview/2b24611a5c1798cdaf0ac67a72170075-decorative-blue-flowers.png',
                       width: screenWidth * 0.6,
                     ),
                   ],
