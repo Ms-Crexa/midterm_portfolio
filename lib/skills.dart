@@ -31,7 +31,7 @@ class _SkillsState extends State<Skills> {
             color: const Color.fromARGB(255, 81, 95, 244),
           ),
           const SizedBox(
-            height: 40,
+            height: 100,
           ),
           LayoutBuilder(
             builder: (context, constraints) {
@@ -40,10 +40,10 @@ class _SkillsState extends State<Skills> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _buildSkillsColumn(),
+                    skillsGrid(),
                     const SizedBox(width: 60),
-                    Image.network(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
+                    Image.asset(
+                      'lib/assets/rose2.jpg',
                       width: screenWidth * 0.3,
                     ),
                   ],
@@ -52,12 +52,11 @@ class _SkillsState extends State<Skills> {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _buildSkillsColumn(),
-                    const SizedBox(height: 40),
+                    skillsGrid(),
+                    const SizedBox(height: 20),
                     Image.network(
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNjMOyoBDLZN_iPoHfTMT1ltlhWjotM-4RqgAHkKGZE3ijMlEyVfu31F8GB9RnUqBr9I&usqp=CAU',
-                      width: screenWidth *
-                          0.6, // Adjust image width for small screens
+                      width: screenWidth * 0.6,
                     ),
                   ],
                 );
@@ -69,7 +68,7 @@ class _SkillsState extends State<Skills> {
     );
   }
 
-  Widget _buildSkillsColumn() {
+  Widget skillsGrid() {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

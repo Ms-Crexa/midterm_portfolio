@@ -15,9 +15,8 @@ class _MaincontentState extends State<Maincontent> {
 
     final isMobile = screenWidth < 600;
 
-    // Calculate the base size for responsiveness
     final double textSize = isMobile ? screenWidth * 0.3 : screenWidth * 0.15;
-    final double imageSize = isMobile ? screenWidth * 0.5 : screenWidth * 0.3;
+    final double imageSize = isMobile ? screenWidth * 0.5 : screenWidth * 0.4;
 
     return Container(
       width: screenWidth,
@@ -25,7 +24,7 @@ class _MaincontentState extends State<Maincontent> {
       margin: EdgeInsets.only(
         top: screenHeight * 0.1,
         left: screenWidth * 0.08,
-        right: screenWidth * 0.15,
+        right: screenWidth * 0.08,
       ),
       child: Stack(
         children: [
@@ -77,10 +76,10 @@ class _MaincontentState extends State<Maincontent> {
           Positioned(
             right: 0,
             bottom: 0,
-            child: Image.network(
-              'https://placehold.co/600x800.png',
+            child: Image.asset(
+              'lib/assets/rose.png',
               width: imageSize,
-              height: imageSize * 1.33,
+              height: imageSize,
             ),
           ),
         ],

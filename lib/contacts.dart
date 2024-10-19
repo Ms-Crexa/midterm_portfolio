@@ -22,12 +22,12 @@ class _ContactsState extends State<Contacts> {
                 ? screenWidth * 0.1
                 : screenWidth * 0.05;
 
-        double titleFontSize = screenWidth > 600 ? 40 : 30;
+        double titleFontSize = screenWidth > 600 ? 40 : 25;
         double labelFontSize = screenWidth > 600 ? 20 : 16;
         double spacing = screenWidth > 600 ? 30 : 15;
 
         return Container(
-          padding: const EdgeInsets.only(top: 70),
+          padding: const EdgeInsets.only(top: 40, bottom: 30),
           width: screenWidth,
           height: isMobile ? screenHeight * 0.9 : screenHeight * 0.75,
           color: Colors.white,
@@ -61,20 +61,20 @@ class _ContactsState extends State<Contacts> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: _buildContactInfo(labelFontSize, spacing),
+                            child: contactInfo(labelFontSize, spacing),
                           ),
                           const SizedBox(width: 10),
                           Expanded(
-                            child: _buildContactForm(spacing),
+                            child: mobileView(spacing),
                           ),
                         ],
                       )
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _buildContactInfo(labelFontSize, spacing),
+                          contactInfo(labelFontSize, spacing),
                           SizedBox(height: spacing * 2),
-                          _buildContactForm(spacing),
+                          mobileView(spacing),
                         ],
                       ),
               ),
@@ -85,7 +85,7 @@ class _ContactsState extends State<Contacts> {
     );
   }
 
-  Widget _buildContactInfo(double labelFontSize, double spacing) {
+  Widget contactInfo(double labelFontSize, double spacing) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -122,7 +122,7 @@ class _ContactsState extends State<Contacts> {
     );
   }
 
-  Widget _buildContactForm(double spacing) {
+  Widget mobileView(double spacing) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -160,7 +160,7 @@ class _ContactsState extends State<Contacts> {
           alignment: Alignment.center,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 81, 95, 244),
+              backgroundColor: const Color.fromARGB(255, 81, 95, 244),
             ),
             onPressed: () {},
             child: const Text(
