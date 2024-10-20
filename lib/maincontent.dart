@@ -15,8 +15,8 @@ class _MaincontentState extends State<Maincontent> {
 
     final isMobile = screenWidth < 600;
 
-    final double textSize = isMobile ? screenWidth * 0.3 : screenWidth * 0.15;
-    final double imageSize = isMobile ? screenWidth * 0.5 : screenWidth * 0.4;
+    final double textSize = isMobile ? screenWidth * 0.2 : screenWidth * 0.15;
+    final double imageSize = isMobile ? 400 : 500;
 
     return Container(
       width: screenWidth,
@@ -80,6 +80,32 @@ class _MaincontentState extends State<Maincontent> {
               'lib/assets/rose.png',
               width: imageSize,
               height: imageSize,
+            ),
+          ),
+          Positioned(
+            left: screenWidth * 0.01,
+            bottom: 30,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: Text(
+                    'Scroll down',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: isMobile ? screenWidth * 0.03 : 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                SizedBox(width: screenWidth * 0.005),
+                Icon(
+                  Icons.arrow_downward,
+                  color: Colors.white,
+                  size: isMobile ? screenWidth * 0.04 : 20,
+                ),
+              ],
             ),
           ),
         ],

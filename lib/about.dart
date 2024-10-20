@@ -37,7 +37,7 @@ class _AboutState extends State<About> {
             'About',
             style: TextStyle(
               color: Colors.black,
-              fontSize: screenWidth < 600 ? 40 : 60,
+              fontSize: screenWidth < 600 ? 40 : 40,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -49,42 +49,32 @@ class _AboutState extends State<About> {
           const SizedBox(height: 50),
           SizedBox(
             width: screenWidth > 850 ? 850 : screenWidth * 0.9,
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                bool isMobile = constraints.maxWidth < 600;
-
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    isMobile
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const CircleAvatar(
-                                  radius: 100,
-                                  backgroundImage:
-                                      AssetImage('lib/assets/rose2.jpg')),
-                              const SizedBox(height: 30),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16.0),
-                                child: _buildTextContent(constraints, isMobile),
-                              ),
-                            ],
-                          )
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const CircleAvatar(
-                                  radius: 150,
-                                  backgroundImage:
-                                      AssetImage('lib/assets/rose2.jpg')),
-                              _buildTextContent(constraints, isMobile),
-                            ],
-                          ),
-                  ],
-                );
-              },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                screenWidth < 800
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const CircleAvatar(
+                              radius: 100,
+                              backgroundImage:
+                                  AssetImage('lib/assets/rose2.jpg')),
+                          const SizedBox(height: 30),
+                          _buildTextContent(screenWidth < 800),
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const CircleAvatar(
+                              radius: 150,
+                              backgroundImage:
+                                  AssetImage('lib/assets/rose2.jpg')),
+                          _buildTextContent(screenWidth < 800),
+                        ],
+                      ),
+              ],
             ),
           ),
         ],
@@ -92,7 +82,7 @@ class _AboutState extends State<About> {
     );
   }
 
-  Widget _buildTextContent(BoxConstraints constraints, bool isMobile) {
+  Widget _buildTextContent(bool isMobile) {
     return SizedBox(
       width: 400,
       child: Column(
@@ -103,8 +93,7 @@ class _AboutState extends State<About> {
             'I am Ninya Paraiso',
             style: TextStyle(
               color: const Color.fromARGB(255, 81, 95, 244),
-              fontSize:
-                  isMobile ? MediaQuery.of(context).size.width * 0.07 : 30,
+              fontSize: 30,
               fontWeight: FontWeight.w800,
             ),
           ),
