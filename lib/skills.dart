@@ -35,7 +35,7 @@ class _SkillsState extends State<Skills> {
           ),
           LayoutBuilder(
             builder: (context, constraints) {
-              if (constraints.maxWidth > 600) {
+              if (constraints.maxWidth > 800) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,7 +56,7 @@ class _SkillsState extends State<Skills> {
                     const SizedBox(height: 20),
                     Image.network(
                       'https://images.vexels.com/media/users/3/291888/isolated/preview/2b24611a5c1798cdaf0ac67a72170075-decorative-blue-flowers.png',
-                      width: screenWidth * 0.6,
+                      width: 300,
                     ),
                   ],
                 );

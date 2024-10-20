@@ -103,13 +103,13 @@ class _MyHomePageState extends State<MyHomePage> {
         offset = 0; // Home
         break;
       case 1:
-        offset = 700; // About section offset
+        offset = 700; // About
         break;
       case 2:
-        offset = 1500; // Skills section offset
+        offset = 1500; // Skills
         break;
       case 3:
-        offset = 2050; // Contact section offset
+        offset = 2050; // Contact
         break;
     }
 
@@ -129,12 +129,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
             ListTile(
               title: const Text('Home'),
               onTap: () => _scrollToSection(0),

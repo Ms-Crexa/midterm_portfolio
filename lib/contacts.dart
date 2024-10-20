@@ -31,54 +31,57 @@ class _ContactsState extends State<Contacts> {
           width: screenWidth,
           height: isMobile ? screenHeight * 0.9 : screenHeight * 0.75,
           color: Colors.white,
-          child: Column(
-            children: [
-              Center(
-                child: Text(
-                  'Contacts',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: titleFontSize,
-                      fontWeight: FontWeight.bold),
+          child: SingleChildScrollView(
+            // Add scroll capability
+            child: Column(
+              children: [
+                Center(
+                  child: Text(
+                    'Contacts',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: titleFontSize,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              const Center(
-                child: SizedBox(
-                  width: 80,
-                  height: 5,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 81, 95, 244),
+                const Center(
+                  child: SizedBox(
+                    width: 80,
+                    height: 5,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 81, 95, 244),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: spacing * 3),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-                child: screenWidth > 600
-                    ? Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: contactInfo(labelFontSize, spacing),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: mobileView(spacing),
-                          ),
-                        ],
-                      )
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          contactInfo(labelFontSize, spacing),
-                          SizedBox(height: spacing * 2),
-                          mobileView(spacing),
-                        ],
-                      ),
-              ),
-            ],
+                SizedBox(height: spacing * 3),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                  child: screenWidth > 600
+                      ? Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: contactInfo(labelFontSize, spacing),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: inputs(spacing),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            contactInfo(labelFontSize, spacing),
+                            SizedBox(height: spacing * 2),
+                            inputs(spacing),
+                          ],
+                        ),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -122,7 +125,7 @@ class _ContactsState extends State<Contacts> {
     );
   }
 
-  Widget mobileView(double spacing) {
+  Widget inputs(double spacing) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
